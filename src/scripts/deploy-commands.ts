@@ -1,5 +1,5 @@
 import { REST, Routes, ApplicationCommandData } from 'discord.js';
-import commandFiles from './commands';
+import commandFiles from '../commands';
 
 if (!process.env.BOT_TOKEN) {
     throw new Error('BOT_TOKEN is not defined in the environment variables');
@@ -14,12 +14,8 @@ Object.values(commandFiles).forEach((commandFile) => {
 const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
 
 const updateCommands = async () => {
-    if (!process.env.CLIENT_ID) {
-        throw new Error('CLIENT_ID is not defined in the environment variables');
-    }
-
-    if (!process.env.GUILD_ID) {
-        throw new Error('GUILD_ID is not defined in the environment variables');
+    if (!process.env.CLIENT_ID || !process.env.GUILD_ID) {
+        throw new Error('Missing Environment Variables');
     }
 
     try {
