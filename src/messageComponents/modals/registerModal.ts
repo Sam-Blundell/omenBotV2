@@ -8,17 +8,17 @@ import { TextInputStyle } from 'discord.js';
 
 const buildRegisterModal = (userId: string) => {
     const registerModal = new ModalBuilder()
-        .setCustomId(`registerModal@${userId}`)
+        .setCustomId(`RegisterModal%${userId}`)
         .setTitle('New Arrival Form');
 
     const characterInput = new TextInputBuilder()
-        .setCustomId('characterInput')
+        .setCustomId('CharacterInput')
         .setLabel('What is your characters name?')
         .setStyle(TextInputStyle.Short)
         .setRequired(true);
 
     const serverInput = new TextInputBuilder()
-        .setCustomId('serverInput')
+        .setCustomId('ServerInput')
         .setLabel('What server are you from?')
         .setStyle(TextInputStyle.Short)
         .setValue('Ravana');
